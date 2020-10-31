@@ -63,7 +63,6 @@ public class AddressService {
 	}
 
 	private void copyDtoToEntity(AddressDTO dto, Address entity) {
-		entity.setId(dto.getId());
 		entity.setStreetName(dto.getStreetName());
 		entity.setNumber(dto.getNumber());
 		entity.setComplement(dto.getComplement());

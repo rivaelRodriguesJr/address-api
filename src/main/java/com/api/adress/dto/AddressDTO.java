@@ -4,24 +4,43 @@ import java.io.Serializable;
 
 import com.api.adress.entities.Address;
 
+import javax.validation.constraints.NotNull;
+
 public class AddressDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	private Long id;
+
+	@NotNull(message = "Mandatory field")
 	private String streetName;
+
+	@NotNull(message = "Mandatory field")
 	private Integer number;
+
 	private String complement;
+
+	@NotNull(message = "Mandatory field")
 	private String neighbourhood;
+
+	@NotNull(message = "Mandatory field")
 	private String city;
+
+	@NotNull(message = "Mandatory field")
 	private String state;
+
+	@NotNull(message = "Mandatory field")
 	private String country;
+
+	@NotNull(message = "Mandatory field")
 	private String zipcode;
+
 	private Double latitude;
+
 	private Double longitude;
 
 	public AddressDTO() {
 	}
-	
+
 	public AddressDTO(Address entity) {
 		this.id = entity.getId();
 		this.streetName = entity.getStreetName();

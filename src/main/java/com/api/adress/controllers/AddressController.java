@@ -3,6 +3,8 @@ package com.api.adress.controllers;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -39,7 +41,7 @@ public class AddressController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<AddressDTO> insert(@RequestBody AddressDTO dto) {
+	public ResponseEntity<AddressDTO> insert(@Valid @RequestBody AddressDTO dto) {
 		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}")
@@ -49,7 +51,7 @@ public class AddressController {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<AddressDTO> update(@PathVariable Long id, @RequestBody AddressDTO dto) {
+	public ResponseEntity<AddressDTO> update(@PathVariable Long id, @Valid @RequestBody AddressDTO dto) {
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}
